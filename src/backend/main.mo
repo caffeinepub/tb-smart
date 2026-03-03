@@ -12,9 +12,9 @@ import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
-import Migration "migration";
 
-(with migration = Migration.run)
+
+
 actor {
   // Initialize the access control state for authentication and authorization.
   let accessControlState = AccessControl.initState();

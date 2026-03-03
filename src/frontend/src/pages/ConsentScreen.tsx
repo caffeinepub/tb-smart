@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { BookOpen, Heart, Lock, ShieldCheck } from "lucide-react";
+import { BookOpen, Heart, Lock, ShieldCheck, UserCog } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -191,6 +191,20 @@ export function ConsentScreen() {
             caffeine.ai
           </a>
         </p>
+
+        {/* Hidden Admin Access */}
+        <div className="flex justify-center mt-4">
+          <button
+            type="button"
+            onClick={() => navigate("/admin")}
+            data-ocid="consent.admin_button"
+            className="flex items-center gap-1.5 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors px-3 py-1.5 rounded-xl hover:bg-muted/40"
+            title="Researcher / Admin Login"
+          >
+            <UserCog className="h-3.5 w-3.5" />
+            <span>Researcher Login</span>
+          </button>
+        </div>
       </div>
     </div>
   );
