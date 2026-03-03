@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree[wght].woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* === TB SMART Medical Blue Theme === */
+    /* Background: clean clinical white */
+    --background: 0.98 0.006 220;
+    --foreground: 0.18 0.025 250;
+
+    /* Cards: pure white */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.025 250;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.025 250;
+
+    /* Primary: deep medical blue */
+    --primary: 0.44 0.16 255;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: light sky blue */
+    --secondary: 0.94 0.04 240;
+    --secondary-foreground: 0.35 0.12 255;
+
+    /* Muted: very light blue-gray */
+    --muted: 0.96 0.014 235;
+    --muted-foreground: 0.52 0.04 240;
+
+    /* Accent: bright medical blue */
+    --accent: 0.92 0.055 240;
+    --accent-foreground: 0.3 0.12 255;
+
+    /* Status colors */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Risk colors */
+    --risk-low: 0.65 0.16 145;
+    --risk-moderate: 0.72 0.19 60;
+    --risk-high: 0.59 0.22 28;
+
+    /* Borders & inputs */
+    --border: 0.88 0.025 240;
+    --input: 0.88 0.025 240;
+    --ring: 0.44 0.16 255;
+
+    /* Chart colors */
+    --chart-1: 0.44 0.16 255;
+    --chart-2: 0.65 0.16 145;
+    --chart-3: 0.72 0.19 60;
+    --chart-4: 0.59 0.22 28;
+    --chart-5: 0.6 0.12 280;
+
+    /* Sidebar */
+    --sidebar: 0.18 0.06 255;
+    --sidebar-foreground: 0.99 0 0;
+    --sidebar-primary: 0.56 0.19 255;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.28 0.07 255;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.28 0.06 255;
+    --sidebar-ring: 0.56 0.19 255;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", "Plus Jakarta Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Plus Jakarta Sans", "Figtree", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-risk-low { color: oklch(0.52 0.16 145); }
+  .text-risk-moderate { color: oklch(0.55 0.19 60); }
+  .text-risk-high { color: oklch(0.50 0.22 28); }
+
+  .bg-risk-low { background-color: oklch(0.92 0.07 145); }
+  .bg-risk-moderate { background-color: oklch(0.94 0.08 60); }
+  .bg-risk-high { background-color: oklch(0.95 0.07 28); }
+
+  .border-risk-low { border-color: oklch(0.65 0.16 145); }
+  .border-risk-moderate { border-color: oklch(0.72 0.19 60); }
+  .border-risk-high { border-color: oklch(0.59 0.22 28); }
+
+  .tb-card {
+    @apply bg-card rounded-2xl shadow-md;
+    border: 1px solid oklch(0.88 0.025 240 / 0.6);
+  }
+
+  .tb-app-shell {
+    @apply min-h-screen bg-background;
+    background-image:
+      radial-gradient(ellipse at 80% 0%, oklch(0.92 0.06 240 / 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 100%, oklch(0.94 0.04 245 / 0.3) 0%, transparent 55%);
+  }
+
+  .tb-section-icon {
+    @apply w-12 h-12 rounded-2xl flex items-center justify-center text-2xl;
+    background: oklch(var(--secondary));
+  }
+
+  .symptom-toggle-yes {
+    @apply border-2 border-primary/40 bg-primary/10;
+  }
+
+  .symptom-toggle-no {
+    @apply border-2 border-border bg-muted/30;
+  }
+
+  .answer-option-selected {
+    @apply border-2 border-primary bg-primary/10 text-primary font-semibold;
+  }
+
+  .answer-option-unselected {
+    @apply border-2 border-border bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors;
+  }
+}
